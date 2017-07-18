@@ -32,17 +32,11 @@ else:
     sys.exit(%d)
 """
 
-eventlet_no_dns = script % ('fake', 'import eventlet', 'foo', 'not', 1, 0)
-
 no_eventlet_no_dns = script % ('fake', '', 'foo', '', 1, 0)
 
 no_eventlet_no_greendns = script % ('dns', '', 'yes', '', 1, 0)
 
-eventlet_no_greendns = script % ('dns', 'import eventlet', 'yes', 'not', 1, 0)
-
 no_eventlet_greendns = script % ('dns', '', 'no', '', 1, 0)
-
-eventlet_greendns = script % ('dns', 'import eventlet', 'no', 'not', 0, 1)
 
 
 class IPv6ServerTest(test_utils.BaseTestCase):
@@ -52,27 +46,12 @@ class IPv6ServerTest(test_utils.BaseTestCase):
         rc = subprocess.call(['python', '-c', no_eventlet_no_dns])
         self.assertEqual(0, rc)
 
-    def test_evnetlet_no_dnspython(self):
-        """Test eventlet pre-imported but dnspython not installed"""
-        rc = subprocess.call(['python', '-c', eventlet_no_dns])
-        self.assertEqual(0, rc)
-
     def test_no_eventlet_no_greendns(self):
         """Test eventlet not imported with EVENTLET_NO_GREENDNS='yes'"""
         rc = subprocess.call(['python', '-c', no_eventlet_no_greendns])
         self.assertEqual(0, rc)
 
-    def test_eventlet_no_greendns(self):
-        """Test eventlet pre-imported with EVENTLET_NO_GREENDNS='yes'"""
-        rc = subprocess.call(['python', '-c', eventlet_no_greendns])
-        self.assertEqual(0, rc)
-
     def test_no_eventlet_w_greendns(self):
         """Test eventlet not imported with EVENTLET_NO_GREENDNS='no'"""
         rc = subprocess.call(['python', '-c', no_eventlet_greendns])
-        self.assertEqual(0, rc)
-
-    def test_eventlet_w_greendns(self):
-        """Test eventlet pre-imported with EVENTLET_NO_GREENDNS='no'"""
-        rc = subprocess.call(['python', '-c', eventlet_greendns])
         self.assertEqual(0, rc)

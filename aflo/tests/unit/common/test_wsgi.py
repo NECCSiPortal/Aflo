@@ -138,7 +138,7 @@ class RequestTest(test_utils.BaseTestCase):
         # best_match_language() returns None.
         self._set_expected_languages(all_locales=['it'])
 
-        req = wsgi.Request.blank('/', headers={'Accept-Language': 'zh'})
+        req = wsgi.Request.blank('/', headers={'Accept-Language': 'unknown'})
         self.assertIsNone(req.best_match_language())
 
     @mock.patch.object(webob.acceptparse.AcceptLanguage, 'best_match')
@@ -383,29 +383,42 @@ class JSONRequestDeserializerTest(test_utils.BaseTestCase):
 
     def test_has_body_has_transfer_encoding(self):
         self.assertTrue(self._check_transfer_encoding(
-                        transfer_encoding='chunked'))
+            transfer_encoding='chunked'))
 
     def test_has_body_multiple_transfer_encoding(self):
         self.assertTrue(self._check_transfer_encoding(
-                        transfer_encoding='chunked, gzip'))
+            transfer_encoding='chunked, gzip'))
 
     def test_has_body_invalid_transfer_encoding(self):
         self.assertFalse(self._check_transfer_encoding(
-                         transfer_encoding='invalid', content_length=0))
+            transfer_encoding='invalid', content_length=0))
+
+    def test_has_body_invalid_transfer_encoding_no_content_len_and_body(self):
+        self.assertFalse(self._check_transfer_encoding(
+                         transfer_encoding='invalid', include_body=False))
+
+    def test_has_body_invalid_transfer_encoding_no_content_len_but_body(self):
+        self.assertTrue(self._check_transfer_encoding(
+                        transfer_encoding='invalid', include_body=True))
 
     def test_has_body_invalid_transfer_encoding_with_content_length(self):
         self.assertTrue(self._check_transfer_encoding(
-                        transfer_encoding='invalid', content_length=5))
+            transfer_encoding='invalid', content_length=5))
 
     def test_has_body_valid_transfer_encoding_with_content_length(self):
         self.assertTrue(self._check_transfer_encoding(
-                        transfer_encoding='chunked', content_length=0))
+            transfer_encoding='chunked', content_length=1))
+
+    def test_has_body_valid_transfer_encoding_without_content_length(self):
+        self.assertTrue(self._check_transfer_encoding(
+                        transfer_encoding='chunked'))
 
     def _check_transfer_encoding(self, transfer_encoding=None,
-                                 content_length=None):
+                                 content_length=None, include_body=True):
         request = wsgi.Request.blank('/')
         request.method = 'POST'
-        request.body = 'fake_body'
+        if include_body:
+            request.body = b'fake_body'
         request.headers['transfer-encoding'] = transfer_encoding
         if content_length is not None:
             request.headers['content-length'] = content_length

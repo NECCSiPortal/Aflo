@@ -10,6 +10,7 @@
 #  License for the specific language governing permissions and limitations
 #  under the License.
 #
+# 
 
 import copy
 import json
@@ -178,7 +179,8 @@ class TicketAdminTest(base.BaseV1AfloAdminTest):
             body = self.os.quotas_client.show_quota_set(self.tenant_id)
             new_cores = body['quota_set']['cores']
             new_ram = body['quota_set']['ram']
-            body = self.os.volume_quotas_client.show_quota_set(self.tenant_id)
+            body = self.os.volume_quotas_v2_client.show_quota_set(
+                self.tenant_id)
             new_gigabytes = body['quota_set']['gigabytes']
 
             # DB Entry is asynchronous process.
@@ -204,7 +206,8 @@ class TicketAdminTest(base.BaseV1AfloAdminTest):
             body = self.os.quotas_client.show_quota_set(self.tenant_id)
             new_cores = body['quota_set']['cores']
             new_ram = body['quota_set']['ram']
-            body = self.os.volume_quotas_client.show_quota_set(self.tenant_id)
+            body = self.os.volume_quotas_v2_client.show_quota_set(
+                self.tenant_id)
             new_gigabytes = body['quota_set']['gigabytes']
 
             # DB Entry is asynchronous process.

@@ -43,8 +43,7 @@ class IsolatedUnitTest(test_utils.BaseTestCase):
                              sqlite_db='aflo.sqlite')
         lockutils.set_defaults(os.path.join(self.test_dir))
 
-        self.config(verbose=False,
-                    debug=False)
+        self.config(debug=False)
 
     def set_policy_rules(self, rules):
         fap = open(CONF.oslo_policy.policy_file, 'w')

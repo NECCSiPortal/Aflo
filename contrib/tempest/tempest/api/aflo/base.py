@@ -50,12 +50,14 @@ class BaseAfloTest(test.BaseTestCase):
         """
         super(BaseAfloTest, cls).resource_setup()
 
-        cls.username = CONF.identity.username
-        cls.password = CONF.identity.password
-        cls.project_name = CONF.identity.tenant_name
+        cls.username = CONF.aflo.demo_username
+        cls.password = CONF.aflo.demo_password
+        cls.project_name = CONF.aflo.demo_project_name
         cls.verify_nonempty(cls.username, cls.password, cls.project_name)
         cls.os = clients.Manager()
         cls.aflo_client = cls.os.aflo_client
+
+        cls.os.credentials.project_id = CONF.aflo.demo_project_id
 
 
 class BaseV1AfloTest(BaseAfloTest):
@@ -77,16 +79,11 @@ class BaseV1AfloAdminTest(BaseAfloTest):
     def resource_setup(cls):
         super(BaseV1AfloAdminTest, cls).resource_setup()
 
-        if hasattr(CONF.identity, 'admin_username'):
-            cls.username = CONF.identity.admin_username
-            cls.password = CONF.identity.admin_password
-            cls.project_name = CONF.identity.admin_tenant_name
-
-        else:
-            cls.username = CONF.auth.admin_username
-            cls.password = CONF.auth.admin_password
-            cls.project_name = CONF.auth.admin_tenant_name
-
+        cls.username = CONF.aflo.admin_username
+        cls.password = CONF.aflo.admin_password
+        cls.project_name = CONF.aflo.admin_project_name
         cls.verify_nonempty(cls.username, cls.password, cls.project_name)
         cls.os = clients.AdminManager()
         cls.aflo_client = cls.os.aflo_client
+
+        cls.os.credentials.project_id = CONF.aflo.admin_project_id

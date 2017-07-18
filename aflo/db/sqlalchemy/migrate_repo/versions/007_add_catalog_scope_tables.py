@@ -10,6 +10,7 @@
 #  License for the specific language governing permissions and limitations
 #  under the License.
 #
+#
 
 from aflo.db.sqlalchemy.migrate_repo.schema import (
     Boolean, DateTime, String, Text, create_tables, drop_tables)  # noqa

@@ -10,6 +10,7 @@
 #  License for the specific language governing permissions and limitations
 #  under the License.
 #
+#
 
 import copy
 import json
@@ -187,8 +188,8 @@ class TicketAdminTest(base.BaseV1AfloAdminTest):
 
         # Wait for a rovoke roles
         for c in range(0, _RETRY_COUNT):
-            body = self.os.roles_client.list_user_roles(
-                user_id=DEMO_USER_ID, tenant_id=self.tenant_id)
+            body = self.os.roles_v3_client.list_user_roles_on_project(
+                user_id=DEMO_USER_ID, project_id=self.tenant_id)
             role_ids = set(map(lambda role: role['name'], body['roles']))
 
             # DB Entry is asynchronous process.
@@ -226,17 +227,18 @@ class TicketAdminTest(base.BaseV1AfloAdminTest):
         Therefore carry out a test as 'Admin' user and evade the problem
         in the thing inspecting by the 'Dummy' user.
         """
-        roles_body = self.os.roles_client.list_roles()
+        roles_body = self.os.roles_v3_client.list_roles()
         role_id = filter(lambda role:
                          role['name'] == OST_ROLES[0],
                          roles_body['roles'])[0]['id']
-        self.os.roles_client.assign_user_role(tenant_id=self.tenant_id,
-                                              user_id=DEMO_USER_ID,
-                                              role_id=role_id)
+        self.os.roles_v3_client.create_user_role_on_project(
+            project_id=self.tenant_id,
+            user_id=DEMO_USER_ID,
+            role_id=role_id)
         # Check assigned role
         for c in range(0, _RETRY_COUNT):
-            body = self.os.roles_client.list_user_roles(
-                user_id=DEMO_USER_ID, tenant_id=self.tenant_id)
+            body = self.os.roles_v3_client.list_user_roles_on_project(
+                user_id=DEMO_USER_ID, project_id=self.tenant_id)
             role_ids = set(map(lambda role: role['name'], body['roles']))
 
             # DB Entry is asynchronous process.

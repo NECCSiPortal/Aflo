@@ -155,11 +155,12 @@ class TicketAdminTest(base.BaseV1AfloAdminTest):
                 break
 
     def _update_gigabytes(self, tenant_id, gigabytes):
-        self.os.volume_quotas_client.update_quota_set(tenant_id,
-                                                      gigabytes=gigabytes)
+        self.os.volume_quotas_v2_client.update_quota_set(tenant_id,
+                                                         gigabytes=gigabytes)
         # Wait for a quota of update
         for c in range(0, _RETRY_COUNT):
-            body = self.os.volume_quotas_client.show_quota_set(self.tenant_id)
+            body = self.os.volume_quotas_v2_client.show_quota_set(
+                self.tenant_id)
             new_gigabytes = body['quota_set']['gigabytes']
 
             # DB Entry is asynchronous process.
@@ -193,7 +194,7 @@ class TicketAdminTest(base.BaseV1AfloAdminTest):
         body = self.os.quotas_client.show_quota_set(self.tenant_id)
         old_cores = body['quota_set']['cores']
         old_ram = body['quota_set']['ram']
-        body = self.os.volume_quotas_client.show_quota_set(self.tenant_id)
+        body = self.os.volume_quotas_v2_client.show_quota_set(self.tenant_id)
         old_gigabytes = body['quota_set']['gigabytes']
 
         # Purchase contract
@@ -207,7 +208,8 @@ class TicketAdminTest(base.BaseV1AfloAdminTest):
             body = self.os.quotas_client.show_quota_set(self.tenant_id)
             new_cores = body['quota_set']['cores']
             new_ram = body['quota_set']['ram']
-            body = self.os.volume_quotas_client.show_quota_set(self.tenant_id)
+            body = self.os.volume_quotas_v2_client.show_quota_set(
+                self.tenant_id)
             new_gigabytes = body['quota_set']['gigabytes']
 
             # DB Entry is asynchronous process.
@@ -237,7 +239,8 @@ class TicketAdminTest(base.BaseV1AfloAdminTest):
         error_cores = \
             total_cores_used + core_num - 1
 
-        body = self.os.volume_quotas_client.show_quota_usage(self.tenant_id)
+        body = self.os.volume_quotas_v2_client.show_quota_set(
+            self.tenant_id, params={'usage': True})
         total_gigabytes_used = body['quota_set']['gigabytes']['in_use']
         error_gigabytes = \
             total_gigabytes_used + gigabytes_num - 1
@@ -297,7 +300,8 @@ class TicketAdminTest(base.BaseV1AfloAdminTest):
             body = self.os.quotas_client.show_quota_set(self.tenant_id)
             new_cores = body['quota_set']['cores']
             new_ram = body['quota_set']['ram']
-            body = self.os.volume_quotas_client.show_quota_set(self.tenant_id)
+            body = self.os.volume_quotas_v2_client.show_quota_set(
+                self.tenant_id)
             new_gigabytes = body['quota_set']['gigabytes']
 
             # DB Entry is asynchronous process.

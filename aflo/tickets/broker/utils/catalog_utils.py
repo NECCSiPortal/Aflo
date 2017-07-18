@@ -10,6 +10,7 @@
 #  License for the specific language governing permissions and limitations
 #  under the License.
 #
+#
 
 from aflo.common.exception import NotFound
 from aflo.db.sqlalchemy import api as db_api

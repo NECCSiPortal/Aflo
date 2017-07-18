@@ -268,7 +268,7 @@ ost_contract = [
     cfg.ListOpt('disinherited_user',
                 default=['aflo', 'admin', 'cinder', 'ceilometer',
                          'swift', 'nova', 'glance', 'neutron',
-                         'heat'],
+                         'heat', 'keystone', 'aodh', 'gnocchi'],
                 help="Specify users who should not be stripped roles"
                      "to operate Object Storage Service"
                      "when a contract is cancelled."
