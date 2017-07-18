@@ -1,0 +1,157 @@
+{
+    "ticket_template_version": "2016-06-27",
+    "ticket_template_name": {
+        "Default": "flat-rate",
+        "ja": "Quota\\u8cb7\\u3044"},
+
+    "application_kinds_name": {
+        "Default": "VCPU 10, RAM 20GB, Volume Storage 50GB",
+        "ja": "VCPU 10, RAM 20GB, \\u30dc\\u30ea\\u30e5\\u30fc\\u30e0\\u30b9\\u30c8\\u30ec\\u30fc\\u30b8 50GB"},
+
+    "ticket_type": "contracted",
+
+    "target_id": [],
+    "target_key": ["vcpu", "ram", "volume_storage"],
+
+    "wf_pattern_code": "contract_workflow",
+
+    "create": {
+        "parameters": [
+            {
+                "key": "vcpu",
+                "label": {
+                    "Default": "VCPU x 10 CORE(S)",
+                    "ja": "VCPU x 10 CORE(S)"},
+                "type": "number",
+                "constraints": {
+                    "required": true,
+                    "range": {
+                        "max": "9999",
+                        "min": "0"
+                    }
+                }
+            },
+            {
+                "key": "ram",
+                "label": {
+                    "Default": "RAM 20 GB",
+                    "ja": "RAM 20 GB"},
+                "type": "number",
+                "constraints": {
+                    "required": true,
+                    "range": {
+                        "max": "9999",
+                        "min": "0"
+                    }
+                }
+            },
+            {
+                "key": "volume_storage",
+                "label": {
+                    "Default": "Volume Storage 50 GB",
+                    "ja": "\\u30dc\\u30ea\\u30e5\\u30fc\\u30e0\\u30b9\\u30c8\\u30ec\\u30fc\\u30b8 50 GB"},
+                "type": "number",
+                "constraints": {
+                    "required": true,
+                    "range": {
+                        "max": "9999",
+                        "min": "0"
+                    }
+                }
+            },
+            {
+                "key": "Message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "length": {
+                        "max": "512",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "update": {
+        "parameters": [
+            {
+                "key": "Message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "length": {
+                        "max": "512",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+
+    "first_status_code": "awaiting approval",
+
+    "action": {
+        "broker_class": "aflo.tickets.broker.sample_set_catalog_monthly.SampleSetCatalogBroker",
+        "broker":[
+            {
+                "status": "awaiting approval",
+                "timing": "before",
+                "validation": "integrity_check_for_cancellation",
+                "broker_method": ""
+            },
+            {
+                "status": "awaiting approval",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "withdrawn",
+                "timing": "before",
+                "validation": "",
+                "broker_method": ""
+            },
+            {
+                "status": "withdrawn",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "check",
+                "timing": "before",
+                "validation": "",
+                "broker_method": ""
+            },
+            {
+                "status": "check",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "reject",
+                "timing": "before",
+                "validation": "",
+                "broker_method": ""
+            },
+            {
+                "status": "reject",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "approval",
+                "timing": "before",
+                "validation": "integrity_check_for_cancellation",
+                "broker_method": ""
+            },
+            {
+                "status": "approval",
+                "timing": "after",
+                "broker_method": "contract_data_registration_for_cancellation"
+            }
+        ]
+    }
+}

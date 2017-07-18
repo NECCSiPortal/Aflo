@@ -1,0 +1,68 @@
+{
+    "wf_pattern_code": "request_workflow",
+    "wf_pattern_name": {
+        "Default": "Request Workflow",
+        "ja": "\\u4f5c\\u696d\\u4f9d\\u983c\\u30ef\\u30fc\\u30af\\u30d5\\u30ed\\u30fc"},
+
+    "status_list": [
+        {
+            "status_code": "none",
+            "status_name": {
+                "Default": "none",
+                "ja": "\\u306a\\u3057"},
+            "next_status": [
+                {
+                    "next_status_code": "inquiring",
+                    "grant_role": "_member_"
+                }
+            ]
+        },
+        {
+            "status_code": "inquiring",
+            "status_name": {
+                "Default": "Inquiring",
+                "ja": "\\u4f9d\\u983c\\u4e2d"},
+            "next_status": [
+                {
+                    "next_status_code": "working",
+                    "grant_role": "wf_request_support"
+                },
+                {
+                    "next_status_code": "close",
+                    "grant_role": "_member_"
+                }
+            ]
+        },
+        {
+            "status_code": "working",
+            "status_name": {
+                "Default": "Working",
+                "ja": "\\u4f5c\\u696d\\u4e2d"},
+            "next_status": [
+                {
+                    "next_status_code": "done",
+                    "grant_role": "wf_request_support"
+                }
+            ]
+        },
+        {
+            "status_code": "done",
+            "status_name": {
+                "Default": "Done",
+                "ja": "\\u30af\\u30ed\\u30fc\\u30ba\\u4f9d\\u983c"},
+            "next_status": [
+                {
+                    "next_status_code": "closed",
+                    "grant_role": "_member_"
+                }
+            ]
+        },
+        {
+            "status_code": "closed",
+            "status_name": {
+                "Default": "Closed",
+                "ja": "\\u30af\\u30ed\\u30fc\\u30ba"},
+            "next_status": [{}]
+        }
+    ]
+}

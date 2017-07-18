@@ -1,0 +1,71 @@
+{
+    "status_list": [
+        {
+            "next_status": [
+                {
+                    "grant_role": "admin",
+                    "next_status_code": "inquiring"
+                }
+            ],
+            "status_code": "none",
+            "status_name": {
+                "Default": "None",
+                "ja": "\u306a\u3057"
+            }
+        },
+        {
+            "next_status": [
+                {
+                    "grant_role": "admin",
+                    "next_status_code": "working"
+                },
+                {
+                    "grant_role": "admin",
+                    "next_status_code": "close request"
+                }
+            ],
+            "status_code": "inquiring",
+            "status_name": {
+                "Default": "Inquiring",
+                "ja": "\u4f9d\u983c\u4e2d"
+            }
+        },
+        {
+            "next_status": [
+                {
+                    "grant_role": "admin",
+                    "next_status_code": "close request"
+                }
+            ],
+            "status_code": "working",
+            "status_name": {
+                "Default": "Working",
+                "ja": "\u4f5c\u696d\u4e2d"
+            }
+        },
+        {
+            "next_status": [
+                {
+                    "grant_role": "admin",
+                    "next_status_code": "close"
+                }
+            ],
+            "status_code": "close request",
+            "status_name": {
+                "Default": "Close Request",
+                "ja": "\u30af\u30ed\u30fc\u30ba\u4f9d\u983c"
+            }
+        },
+        {
+            "next_status": [
+                {}
+            ],
+            "status_code": "close",
+            "status_name": {
+                "Default": "Close",
+                "ja": "\u30af\u30ed\u30fc\u30ba"
+            }
+        }
+    ],
+    "wf_pattern_code": "request_workflow_inquiry"
+}

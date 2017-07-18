@@ -1,0 +1,34 @@
+*.pyc
+*.log
+.aflo-venv
+.venv
+.testrepository/
+.tox
+.coverage
+cover/*
+nosetests.xml
+coverage.xml
+aflo.sqlite
+AUTHORS
+ChangeLog
+build
+dist
+*.egg
+aflo.egg-info
+tests.sqlite
+aflo/versioninfo
+
+# Swap files range from .saa to .swp
+*.s[a-w][a-p]
+
+# IDE files
+.project
+.pydevproject
+.settings/
+.idea
+.e4p
+.eric5project/
+.issues/
+.ropeproject
+cover/
+covhtml/

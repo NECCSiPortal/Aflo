@@ -1,0 +1,85 @@
+{
+    "ticket_template_version": "2016-06-27",
+    "ticket_template_name": {
+        "Default": "ticket_template_name",
+        "ja_JP": "ticket_template_name_jp"
+    },
+    "application_kinds_name": {
+        "Default": "application_kinds_name_2",
+        "ja_JP": "application_kinds_name_2_jp"
+    },
+    "ticket_type": "goods",
+    "target_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "wf_pattern_code": "Three_approver",
+    "create": {
+        "parameters": [
+            {
+                "key": "num",
+                "type": "number",
+                "label": {
+                    "Default": "num",
+                    "ja": "num_jp"},
+                "constraints": {
+                    "required": true,
+                    "range": {
+                        "max": "999",
+                        "min": "1"
+                    }
+                }
+            },
+            {
+                "key": "description",
+                "type": "string",
+                "label": {
+                    "Default": "description",
+                    "ja": "description_jp"},
+                "constraints": {
+                    "length": {
+                        "max": "128",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "update": {
+        "parameters": [
+            {
+                "key": "Message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "length": {
+                        "max": "512",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "action": {
+        "broker_class": "aflo.tickets.broker.sample_broker.SampleBroker",
+        "broker": [
+            {
+                "status": "applied_1st",
+                "timing": "after",
+                "validation": "",
+                "broker_method": "sendmail"
+            },
+            {
+                "status": "applied",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "approved",
+                "timing": "after",
+                "validation": "",
+                "broker_method": "sendmail"
+            }
+        ]
+    }
+}

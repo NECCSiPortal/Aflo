@@ -1,0 +1,32 @@
+{
+    "status_list": [
+        {
+            "next_status": [
+                {
+                    "grant_role": "admin",
+                    "next_status_code": "approved"
+                }
+            ],
+            "status_code": "none",
+            "status_name": {
+                "Default": "none",
+                "ja": "none"
+            }
+        },
+        {
+            "next_status": [
+                {}
+            ],
+            "status_code": "approved",
+            "status_name": {
+                "Default": "\\u3042\"'<>%\\",
+                "ja": "approved"
+            }
+        }
+    ],
+    "wf_pattern_code": "one_approver",
+    "wf_pattern_name": {
+        "Default": "one_approver",
+        "ja": "one_approver"
+    }
+}

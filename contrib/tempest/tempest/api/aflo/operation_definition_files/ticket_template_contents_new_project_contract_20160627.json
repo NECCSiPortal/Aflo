@@ -1,0 +1,260 @@
+{
+    "ticket_template_version": "2016-06-27",
+    "ticket_template_name": {
+        "Default": "basic-contract",
+        "ja": "\u57fa\u672c\u5951\u7d04"},
+
+    "application_kinds_name": {
+        "Default": "Project",
+        "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8"},
+
+    "ticket_type": "New Project Contract",
+
+    "wf_pattern_code": "new_project_workflow",
+    "first_status_code": "accepted before",
+
+    "cancelling_template": {
+        "id": "31"},
+    "change_template": "",
+
+    "target_id": "",
+    "target_key": "",
+    "price_notice": "",
+
+    "create":{
+        "parameters": [
+            {
+                "key": "user_name",
+                "type": "string",
+                "label": {
+                    "default": "User Name",
+                    "ja": "\u30e6\u30fc\u30b6\u540d"
+                },
+                "constraints": {
+                    "required": true,
+                    "length": {
+                        "max": 256,
+                        "min": 1
+                    }
+                }
+            },
+            {
+                "key": "email",
+                "type": "email",
+                "label": {
+                    "default": "Email",
+                    "ja": "\u30e1\u30fc\u30eb"
+                },
+                "constraints": {
+                    "required": true
+                }
+            },
+            {
+                "key": "project_name",
+                "type": "string",
+                "label": {
+                    "default": "Project Name",
+                    "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u540d"
+                },
+                "constraints": {
+                    "required": true,
+                    "length": {
+                        "max": 256,
+                        "min": 1
+                    }
+                }
+            },
+            {
+                "key": "preferred_date",
+                "type": "date",
+                "label": {
+                    "default": "Preferred Date",
+                    "ja": "\u5e0c\u671b\u65e5"
+                },
+                "description": {
+                    "default": "Please enter the date you want the project contract. The time is set to 00:00 automatically.",
+                    "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5951\u7d04\u958b\u59cb\u65e5\u3068\u306a\u308b\u65e5\u4ed8\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u6642\u9593\u306f\u81ea\u52d5\u306700\uff1a00\u304c\u8a2d\u5b9a\u3055\u308c\u307e\u3059\u3002"
+                },
+                "constraints": {
+                    "required": true
+                }
+            },
+            {
+                "key": "message",
+                "type": "string",
+                "multi_line": true,
+                "label": {
+                    "default": "Message",
+                    "ja": "\u30e1\u30c3\u30bb\u30fc\u30b8"
+                },
+                "description": {
+                    "default": "Please input if there is a message.",
+                    "ja": "\u30e1\u30c3\u30bb\u30fc\u30b8\u304c\u3042\u308b\u5834\u5408\u306f\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002"
+                },
+                "constraints": {
+                    "length": {
+                        "max": 512,
+                        "min": 0
+                    }
+                }
+            }
+        ],
+        "custom": []
+    },
+    "update": {
+        "parameters": [
+            {
+                "key": "project_id",
+                "type": "string",
+                "label": {
+                    "default": "Project ID",
+                    "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8ID"
+                },
+                "status": "working",
+                "description": {
+                    "default": "Please enter the ID of the project that you created in the admission process.",
+                    "ja": "\u5165\u4f1a\u51e6\u7406\u3067\u4f5c\u6210\u3057\u305f\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u306eID\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002"
+                },
+                "constraints": {
+                    "required": true,
+                    "length": {
+                        "max": 32,
+                        "min": 32
+                    }
+                }
+            },
+            {
+                "key": "user_id",
+                "type": "string",
+                "label": {
+                    "default": "User ID",
+                    "ja": "\u30e6\u30fc\u30b6ID"
+                },
+                "status": "working",
+                "description": {
+                    "default": "Please enter the ID of the user that you created in the admission process.",
+                    "ja": "\u5165\u4f1a\u51e6\u7406\u3067\u4f5c\u6210\u3057\u305f\u30e6\u30fc\u30b6\u306eID\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002"
+                },
+                "constraints": {
+                    "required": true,
+                    "length": {
+                        "max": 32,
+                        "min": 32
+                    }
+                }
+            },
+            {
+                "key": "join_date",
+                "type": "date",
+                "label": {
+                    "default": "Join Date",
+                    "ja": "\u5165\u4f1a\u65e5"
+                },
+                "status": "working",
+                "description": {
+                    "default": "Please enter the date on which the project contract start date. The time is set to 00:00 automatically.",
+                    "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5951\u7d04\u958b\u59cb\u65e5\u3068\u306a\u308b\u65e5\u4ed8\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u6642\u9593\u306f\u81ea\u52d5\u306700\uff1a00\u304c\u8a2d\u5b9a\u3055\u308c\u307e\u3059\u3002"
+                },
+                "constraints": {
+                    "required": true
+                }
+            },
+            {
+                "key": "message",
+                "type": "string",
+                "multi_line": true,
+                "label": {
+                    "default": "Message",
+                    "ja": "\u30e1\u30c3\u30bb\u30fc\u30b8"
+                },
+                "description": {
+                    "default": "Please input if there is a message.",
+                    "ja": "\u30e1\u30c3\u30bb\u30fc\u30b8\u304c\u3042\u308b\u5834\u5408\u306f\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002"
+                },
+                "constraints": {
+                    "length": {
+                        "max": 512,
+                        "min": 0
+                    }
+                }
+            }
+        ],
+        "description": {
+            "default": "This screen is used to the approval of the project contract application. If there is a cancellation request from the applicant, please update the status to Canceled. At that time, if there is already registered information, please delete. If you want the status to work completion, please do the following tasks before 00:00 specified admission date. Project created. Creating user. Creating groups. Authorization. Product pricing. Work completion e-mail notification to the applicant.",
+            "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5951\u7d04\u7533\u8acb\u306e\u627f\u8a8d\u3092\u3059\u308b\u753b\u9762\u3067\u3059\u3002\u7533\u8acb\u8005\u304b\u3089\u53d6\u6d88\u4f9d\u983c\u304c\u3042\u3063\u305f\u5834\u5408\u3001\u30b9\u30c6\u30fc\u30bf\u30b9\u3092\u30ad\u30e3\u30f3\u30bb\u30eb\u306b\u66f4\u65b0\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u305d\u306e\u969b\u3001\u65e2\u306b\u767b\u9332\u6e08\u307f\u306e\u60c5\u5831\u304c\u3042\u308c\u3070\u3001\u524a\u9664\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u30b9\u30c6\u30fc\u30bf\u30b9\u3092\u4f5c\u696d\u5b8c\u4e86\u306b\u3059\u308b\u5834\u5408\u3001\u6307\u5b9a\u3057\u305f\u5165\u4f1a\u65e5\u306e00\uff1a00\u307e\u3067\u306b\u4ee5\u4e0b\u306e\u4f5c\u696d\u3092\u884c\u3063\u3066\u304f\u3060\u3055\u3044\u3002\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u4f5c\u6210\u3002\u30e6\u30fc\u30b6\u4f5c\u6210\u3002\u30b0\u30eb\u30fc\u30d7\u4f5c\u6210\u3002\u6a29\u9650\u4ed8\u4e0e\u3002\u5546\u54c1\u4fa1\u683c\u8a2d\u5b9a\u3002\u7533\u8acb\u8005\u3078\u306e\u4f5c\u696d\u5b8c\u4e86\u30e1\u30fc\u30eb\u901a\u77e5\u3002"
+        },
+        "custom": []
+    },
+
+    "action": {
+        "broker_class": "aflo.tickets.broker.sample_project_contract_handler.ProjectContractHandler",
+        "broker": [
+            {
+                "status": "accepted before",
+                "timing": "before",
+                "validation": "integrity_check_for_project_contract",
+                "broker_method": ""
+            },
+            {
+                "status": "accepted before",
+                "timing": "after",
+                "broker_method": "mail_to_contract_manager"
+            },
+            {
+                "status": "canceled",
+                "timing": "before",
+                "validation": "",
+                "broker_method": ""
+            },
+            {
+                "status": "canceled",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "rejected",
+                "timing": "before",
+                "validation": "",
+                "broker_method": ""
+            },
+            {
+                "status": "rejected",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "accepted",
+                "timing": "before",
+                "validation": "integrity_check_for_project_contract",
+                "broker_method": ""
+            },
+            {
+                "status": "accepted",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "working",
+                "timing": "before",
+                "validation": "integrity_check_for_project_contract",
+                "broker_method": ""
+            },
+            {
+                "status": "working",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "done",
+                "timing": "before",
+                "validation": "integrity_check_for_project_contract_done",
+                "broker_method": ""
+            },
+            {
+                "status": "done",
+                "timing": "after",
+                "broker_method": "create_project_contract"
+            }
+        ]
+    }
+}

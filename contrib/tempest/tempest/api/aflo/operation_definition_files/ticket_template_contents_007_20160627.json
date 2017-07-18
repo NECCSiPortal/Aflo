@@ -1,0 +1,80 @@
+{
+    "ticket_template_version": "2016-06-27",
+    "action": {
+        "broker": [
+            {
+                "broker_method": "action_raise_exception",
+                "status": "inspectioned",
+                "timing": "before",
+                "validation": "param_check"
+            },
+            {
+                "broker_method": "action",
+                "status": "inspectioned",
+                "timing": "after"
+            }
+        ],
+        "broker_class": "aflo.tests.functional.broker.ft_broker.FunctionalTestBroker"
+    },
+    "application_kinds_name": {
+        "Default": "test",
+        "ja": "test"
+    },
+    "first_status_code": "applied",
+    "create": {
+        "parameters": [
+            {
+                "key": "num",
+                "type": "number",
+                "label": {
+                    "Default": "num",
+                    "ja": "num"},
+                "constraints": {
+                    "required": true,
+                    "range": {
+                        "max": "999",
+                        "min": "0"
+                    }
+                }
+            },
+            {
+                "key": "description",
+                "type": "string",
+                "label": {
+                    "Default": "description",
+                    "ja": "description"},
+                "constraints": {
+                    "length": {
+                        "max": "128",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "update": {
+        "parameters": [
+            {
+                "key": "message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "length": {
+                        "max": "512",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "target_id": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2"],
+    "target_key": ["num"],
+    "ticket_template_name": {
+        "Default": "test",
+        "ja": "test"
+    },
+    "ticket_type": "New Contract",
+    "wf_pattern_code": "three_approver_007"
+}

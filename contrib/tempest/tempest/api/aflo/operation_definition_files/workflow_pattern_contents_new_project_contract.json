@@ -1,0 +1,103 @@
+{
+    "wf_pattern_version": "2016-06-27",
+    "wf_pattern_code": "new_project_workflow",
+    "wf_pattern_name": {
+        "Default": "New Project Workflow",
+        "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5951\u7d04\u30ef\u30fc\u30af\u30d5\u30ed\u30fc"},
+
+    "status_list": [
+        {
+            "status_code": "none",
+            "status_name": {
+                "Default": "None",
+                "ja": "\u306a\u3057"},
+            "next_status": [
+                {
+                    "next_status_code": "accepted before",
+                    "grant_role": "admin"
+                }
+            ]
+        },
+        {
+            "status_code": "accepted before",
+            "status_name": {
+                "Default": "Accepted Before",
+                "ja": "\u53d7\u4ed8\u524d"},
+            "next_status": [
+                {
+                    "next_status_code": "accepted",
+                    "grant_role": "O__DC1__ContractManager"
+                },
+                {
+                    "next_status_code": "rejected",
+                    "grant_role": "O__DC1__ContractManager"
+                },
+                {
+                    "next_status_code": "canceled",
+                    "grant_role": "O__DC1__ContractManager"
+                }
+            ]
+        },
+        {
+            "status_code": "accepted",
+            "status_name": {
+                "Default": "Accepted",
+                "ja": "\u53d7\u4ed8\u6e08"},
+            "next_status": [
+                {
+                    "next_status_code": "working",
+                    "grant_role": "O__DC1__ContractManager"
+                },
+                {
+                    "next_status_code": "rejected",
+                    "grant_role": "O__DC1__ContractManager"
+                },
+                {
+                    "next_status_code": "canceled",
+                    "grant_role": "O__DC1__ContractManager"
+                }
+            ]
+        },
+        {
+            "status_code": "working",
+            "status_name": {
+                "Default": "Working",
+                "ja": "\u4f5c\u696d\u4e2d"},
+            "next_status": [
+                {
+                    "next_status_code": "done",
+                    "grant_role": "O__DC1__ContractManager"
+                },
+                {
+                    "next_status_code": "rejected",
+                    "grant_role": "O__DC1__ContractManager"
+                },
+                {
+                    "next_status_code": "canceled",
+                    "grant_role": "O__DC1__ContractManager"
+                }
+            ]
+        },
+        {
+            "status_code": "rejected",
+            "status_name": {
+                "Default": "Rejected",
+                "ja": "\u5426\u8a8d"},
+            "next_status": [{}]
+        },
+        {
+            "status_code": "canceled",
+            "status_name": {
+                "Default": "Canceled",
+                "ja": "\u30ad\u30e3\u30f3\u30bb\u30eb"},
+            "next_status": [{}]
+        },
+        {
+            "status_code": "done",
+            "status_name": {
+                "Default": "Done",
+                "ja": "\u4f5c\u696d\u7d42\u4e86"},
+            "next_status": [{}]
+        }
+    ]
+}

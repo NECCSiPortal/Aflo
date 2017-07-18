@@ -1,0 +1,86 @@
+{
+    "status_list": [
+        {
+            "next_status": [
+                {
+                    "grant_role": "admin",
+                    "next_status_code": "applied"
+                }
+            ],
+            "status_code": "none",
+            "status_name": {
+                "Default": "none",
+                "ja": "none"
+            }
+        },
+        {
+            "next_status": [
+                {
+                    "grant_role": "admin",
+                    "next_status_code": "inspectioned"
+                },
+                {
+                    "grant_role": "admin",
+                    "next_status_code": "denied"
+                },
+                {
+                    "grant_role": "admin",
+                    "next_status_code": "withdrew"
+                }
+            ],
+            "status_code": "applied",
+            "status_name": {
+                "Default": "applied",
+                "ja": "applied"
+            }
+        },
+        {
+            "next_status": [
+                {}
+            ],
+            "status_code": "withdrew",
+            "status_name": {
+                "Default": "withdrew",
+                "ja": "withdrew"
+            }
+        },
+        {
+            "next_status": [
+                {}
+            ],
+            "status_code": "denied",
+            "status_name": {
+                "Default": "denied",
+                "ja": "denied"
+            }
+        },
+        {
+            "next_status": [
+                {
+                    "grant_role": "admin",
+                    "next_status_code": "approved"
+                },
+                {
+                    "grant_role": "admin",
+                    "next_status_code": "denied"
+                }
+            ],
+            "status_code": "inspectioned",
+            "status_name": {
+                "Default": "inspectioned",
+                "ja": "inspectioned"
+            }
+        },
+        {
+            "next_status": [
+                {}
+            ],
+            "status_code": "approved",
+            "status_name": {
+                "Default": "approved",
+                "ja": "approved"
+            }
+        }
+    ],
+    "wf_pattern_code": "three_approver"
+}

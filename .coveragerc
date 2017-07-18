@@ -1,0 +1,10 @@
+[run]
+branch = True
+source = aflo
+omit = aflo/tests/*,aflo/openstack/*,aflo/db/sqlalchemy/migrate_repo/*,
+       aflo/hacking/*,aflo/cmd/*,aflo/api/middleware/access_log*,aflo/contrib/*,
+       aflo/common/*,aflo/context*,aflo/i18n*,aflo/notifier*,aflo/opts*,aflo/version*,
+       aflo/tickets/broker/*,aflo/mail/*
+
+[report]
+#ignore-errors = True

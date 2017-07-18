@@ -1,0 +1,159 @@
+{
+    "ticket_template_version": "2016-06-27",
+    "ticket_template_name": {
+        "Default": "flat-rate",
+        "ja": "\\u5b9a\\u984d\\u8ab2\\u91d1"},
+
+    "application_kinds_name": {
+        "Default": "VCPU 10, RAM 20GB, Volume Storage 50GB",
+        "ja": "VCPU 10, RAM 20GB, \\u30dc\\u30ea\\u30e5\\u30fc\\u30e0\\u30b9\\u30c8\\u30ec\\u30fc\\u30b8 50GB"},
+
+    "ticket_type": "contract",
+
+    "target_id": ["catalog0-1111-2222-3333-000000000005", "catalog0-1111-2222-3333-000000000002", "catalog0-1111-2222-3333-000000000001"],
+    "target_key": ["vcpu", "ram", "volume_storage"],
+
+    "wf_pattern_code": "contract_workflow",
+
+    "cancelling_template": {"id" : "11"},
+    "change_template": {"id" : "11"},
+
+    "create": {
+        "parameters": [
+            {
+                "key": "vcpu",
+                "label": {
+                    "Default": "VCPU x 10 CORE(S)",
+                    "ja": "VCPU x 10 CORE(S)"},
+                "type": "number",
+                "constraints": {
+                    "required": true,
+                    "range": {
+                        "max": "9999",
+                        "min": "0"
+                    }
+                }
+            },
+            {
+                "key": "ram",
+                "label": {
+                    "Default": "RAM 20 GB",
+                    "ja": "RAM 20 GB"},
+                "type": "number",
+                "constraints": {
+                    "required": true,
+                    "range": {
+                        "max": "9999",
+                        "min": "0"
+                    }
+                }
+            },
+            {
+                "key": "volume_storage",
+                "label": {
+                    "Default": "Volume Storage 50 GB",
+                    "ja": "\\u30dc\\u30ea\\u30e5\\u30fc\\u30e0\\u30b9\\u30c8\\u30ec\\u30fc\\u30b8 50 GB"},
+                "type": "number",
+                "constraints": {
+                    "required": true,
+                    "range": {
+                        "max": "9999",
+                        "min": "0"
+                    }
+                }
+            },
+            {
+                "key": "Message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "length": {
+                        "max": "512",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "update": {
+        "parameters": [
+            {
+                "key": "Message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "range": {
+                        "max": "512",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "first_status_code": "pre-approval",
+
+    "action": {
+        "broker_class": "aflo.tickets.broker.sample_set_catalog_monthly.SampleSetCatalogBroker",
+        "broker":[
+            {
+                "status": "pre-approval",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": "integrity_check_for_purchase_contract"
+            },
+            {
+                "status": "pre-approval",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "canceled",
+                "timing": "before",
+                "validation": "",
+                "broker_method": ""
+            },
+            {
+                "status": "canceled",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "first approval",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "first approval",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "rejected",
+                "timing": "before",
+                "validation": "",
+                "broker_method": ""
+            },
+            {
+                "status": "rejected",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "final approval",
+                "timing": "before",
+                "validation": "valid_catalog_check",
+                "broker_method": "integrity_check_for_purchase_contract"
+            },
+            {
+                "status": "final approval",
+                "timing": "after",
+                "broker_method": "contract_data_registration_for_purchase_contract"
+            }
+        ]
+    }
+}

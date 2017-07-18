@@ -1,0 +1,160 @@
+{
+    "ticket_template_version": "2016-06-27",
+    "ticket_template_name": {
+        "Default": "basic-contract",
+        "ja": "\u57fa\u672c\u5951\u7d04"},
+
+    "application_kinds_name": {
+        "Default": "Project",
+        "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8"},
+
+    "ticket_type": "Cancel Project Contract",
+
+    "wf_pattern_code": "cancel_project_workflow",
+    "first_status_code": "pre-approval",
+
+    "cancelling_template": "",
+    "change_template": "",
+
+    "target_id": "",
+    "target_key": "",
+    "price_notice": "",
+
+    "create":{
+        "parameters": [
+            {
+                "key": "preferred_date",
+                "type": "date",
+                "label": {
+                    "default": "Preferred Date",
+                    "ja": "\u5e0c\u671b\u65e5"
+                },
+                "description": {
+                    "default": "Please enter the date you would like to project cancellation. The time is set to 23:59 automatically.",
+                    "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u89e3\u7d04\u3092\u5e0c\u671b\u3059\u308b\u65e5\u4ed8\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u6642\u9593\u306f\u81ea\u52d5\u306723\uff1a59\u304c\u8a2d\u5b9a\u3055\u308c\u307e\u3059\u3002"
+                },
+                "constraints": {
+                    "required": true
+                }
+            },
+            {
+                "key": "message",
+                "type": "string",
+                "multi_line": true,
+                "label": {
+                    "default": "Message",
+                    "ja": "\u30e1\u30c3\u30bb\u30fc\u30b8"
+                },
+                "description": {
+                    "default": "Please enter if there is a separate note to the next application contents for to the person in charge.",
+                    "ja": "\u6b21\u306e\u62c5\u5f53\u8005\u3078\u5bfe\u3057\u3066\u7533\u8acb\u5185\u5bb9\u3068\u306f\u5225\u306b\u6ce8\u610f\u70b9\u304c\u3042\u308c\u3070\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002"
+                },
+                "constraints": {
+                    "length": {
+                        "max": 512,
+                        "min": 0
+                    }
+                }
+            }
+        ],
+        "description": {
+            "default": "Please enter the date you would like to project cancellation. The time is set to 23:59 automatically. Project contract has been canceled, if the child project is present, you can not cancel the application.",
+            "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u89e3\u7d04\u3092\u5e0c\u671b\u3059\u308b\u65e5\u4ed8\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u6642\u9593\u306f\u81ea\u52d5\u306723\uff1a59\u304c\u8a2d\u5b9a\u3055\u308c\u307e\u3059\u3002\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5951\u7d04\u304c\u89e3\u7d04\u6e08\u307f\u3001\u307e\u305f\u306f\u5b50\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u304c\u5b58\u5728\u3059\u308b\u5834\u5408\u3001\u89e3\u7d04\u7533\u8acb\u306f\u3067\u304d\u307e\u305b\u3093\u3002"
+        },
+        "custom": []
+    },
+    "update": {
+        "parameters": [
+            {
+                "key": "withdrawal_date",
+                "type": "date",
+                "label": {
+                    "default": "Withdrawal Date",
+                    "ja": "\u9000\u4f1a\u65e5"
+                },
+                "status": "pre-approval",
+                "description": {
+                    "default": "Please enter the date on which the project contract end date. The time is set to 23:59 automatically.",
+                    "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5951\u7d04\u7d42\u4e86\u65e5\u3068\u306a\u308b\u65e5\u4ed8\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u6642\u9593\u306f\u81ea\u52d5\u306723\uff1a59\u304c\u8a2d\u5b9a\u3055\u308c\u307e\u3059\u3002"
+                },
+                "constraints": {
+                    "required": true
+                }
+            },
+            {
+                "key": "message",
+                "type": "string",
+                "multi_line": true,
+                "label": {
+                    "default": "Message",
+                    "ja": "\u30e1\u30c3\u30bb\u30fc\u30b8"
+                },
+                "description": {
+                    "default": "Please enter if there is a separate note to the next application contents for to the person in charge.",
+                    "ja": "\u6b21\u306e\u62c5\u5f53\u8005\u3078\u5bfe\u3057\u3066\u7533\u8acb\u5185\u5bb9\u3068\u306f\u5225\u306b\u6ce8\u610f\u70b9\u304c\u3042\u308c\u3070\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002"
+                },
+                "constraints": {
+                    "length": {
+                        "max": 512,
+                        "min": 0
+                    }
+                }
+            }
+        ],
+        "description": {
+            "default": "This screen is used to the approval of the project cancellation application. If you want the status to final approval, please do the following tasks to 23:59 of the specified withdrawal date. Project disabled. User disabled. Group disabled. NW Delete. Delete resources please refer to the request to the system administrator.",
+            "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u89e3\u7d04\u7533\u8acb\u306e\u627f\u8a8d\u3092\u3059\u308b\u753b\u9762\u3067\u3059\u3002\u30b9\u30c6\u30fc\u30bf\u30b9\u3092\u6700\u7d42\u627f\u8a8d\u306b\u3059\u308b\u5834\u5408\u3001\u6307\u5b9a\u3057\u305f\u9000\u4f1a\u65e5\u306e23\uff1a59\u307e\u3067\u306b\u4ee5\u4e0b\u306e\u4f5c\u696d\u3092\u884c\u3063\u3066\u304f\u3060\u3055\u3044\u3002\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u7121\u52b9\u5316\u3002\u30e6\u30fc\u30b6\u7121\u52b9\u5316\u3002\u30b0\u30eb\u30fc\u30d7\u7121\u52b9\u5316\u3002NW\u524a\u9664\u3002\u30ea\u30bd\u30fc\u30b9\u306e\u524a\u9664\u306f\u30b7\u30b9\u30c6\u30e0\u7ba1\u7406\u8005\u306b\u4f9d\u983c\u3092\u3057\u3066\u304f\u3060\u3055\u3044\u3002"
+        },
+        "custom": []
+    },
+
+    "action": {
+        "broker_class": "aflo.tickets.broker.sample_project_contract_handler.ProjectContractHandler",
+        "broker": [
+            {
+                "status": "pre-approval",
+                "timing": "before",
+                "validation": "integrity_check_for_cancel_project_contract",
+                "broker_method": ""
+            },
+            {
+                "status": "pre-approval",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "canceled",
+                "timing": "before",
+                "validation": "",
+                "broker_method": ""
+            },
+            {
+                "status": "canceled",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "rejected",
+                "timing": "before",
+                "validation": "",
+                "broker_method": ""
+            },
+            {
+                "status": "rejected",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "final approval",
+                "timing": "before",
+                "validation": "integrity_check_for_cancel_project_contract",
+                "broker_method": ""
+            },
+            {
+                "status": "final approval",
+                "timing": "after",
+                "broker_method": "create_cancel_project_contract"
+            }
+        ]
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "context_is_admin":  "role:admin",
+    "default": "",
+
+    "tickettemplates_index": "",
+    "tickettemplates_show": "",
+    "tickettemplates_create": "role:admin",
+    "tickettemplates_delete": "role:admin",
+
+    "workflowpatterns_create": "role:admin",
+    "workflowpatterns_delete": "role:admin",
+
+    "tickets_index": "",
+    "tickets_show": "",
+    "tickets_create": "",
+    "tickets_delete": "role:admin",
+
+    "contract_create": "role:admin",
+    "contract_delete": "role:admin",
+    "contract_update": "role:admin",
+    "contract_show": "",
+    "contract_list": "",
+
+    "goods_create": "role:admin",
+    "goods_update": "role:admin",
+    "goods_show": "",
+    "goods_list": "",
+    "goods_delete": "role:admin",
+
+    "catalog_create": "role:admin",
+    "catalog_update": "role:admin",
+    "catalog_show": "",
+    "catalog_index": "",
+    "catalog_delete": "role:admin",
+
+    "catalog_contents_create": "role:admin",
+    "catalog_contents_update": "role:admin",
+    "catalog_contents_show": "",
+    "catalog_contents_list": "",
+    "catalog_contents_delete": "role:admin",
+
+    "catalog_scope_create": "role:admin",
+    "catalog_scope_update": "role:admin",
+    "catalog_scope_show": "",
+    "catalog_scope_index": "",
+    "catalog_scope_delete": "role:admin",
+
+    "valid_catalog_list": "",
+
+    "price_create": "role:admin",
+    "price_update": "role:admin",
+    "price_show": "",
+    "price_index": "",
+    "price_delete": "role:admin"
+}

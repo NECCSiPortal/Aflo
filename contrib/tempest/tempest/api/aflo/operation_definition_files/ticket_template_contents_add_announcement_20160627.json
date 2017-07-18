@@ -1,0 +1,346 @@
+{
+    "ticket_template_version": "2016-06-27",
+    "ticket_template_name": {
+        "Default": "Announcement",
+        "ja": "\u304a\u77e5\u3089\u305b"},
+
+    "application_kinds_name": {
+        "Default": "Add Announcement",
+        "ja": "\u304a\u77e5\u3089\u305b\u767b\u9332"},
+
+    "ticket_type": "Work",
+
+    "wf_pattern_code": "announcement_workflow",
+    "first_status_code": "pre-approval",
+
+    "cancelling_template": "",
+    "change_template": "",
+
+    "target_id": "",
+    "target_key": "",
+    "price_notice": "",
+
+    "create":{
+        "parameters": [
+            {
+                "key": "type",
+                "type": "hidden",
+                "label": {
+                    "default": "Type",
+                    "ja": "\u30bf\u30a4\u30d7"
+                },
+                "default": "maintenance"
+            },
+            {
+                "key": "title",
+                "type": "string",
+                "label": {
+                    "default": "Title",
+                    "ja": "\u30bf\u30a4\u30c8\u30eb"
+                },
+                "default": "",
+                "constraints": {
+                    "length": {
+                        "max": 256,
+                        "min": 0
+                    }
+                }
+            },
+            {
+                "key": "language",
+                "type": "string",
+                "label": {
+                    "default": "Language",
+                    "ja": "\u8a00\u8a9e"
+                },
+                "default": "en",
+                "constraints": {
+                    "required": true,
+                    "allowed_values": [
+                        {
+                            "value": "en",
+                            "label": {
+                                "default": "en",
+                                "ja": "en"
+                            }
+                        },
+                        {
+                            "value": "ja",
+                            "label": {
+                                "default": "ja",
+                                "ja": "ja"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "field_maintext",
+                "type": "string",
+                "multi_line": true,
+                "label": {
+                    "default": "Maintext",
+                    "ja": "\u4e3b\u6587"
+                },
+                "default": "",
+                "constraints": {
+                    "required": true,
+                    "length": {
+                        "max": 2000,
+                        "min": 0
+                    }
+                }
+            },
+            {
+                "key": "field_workdays",
+                "type": "date",
+                "label": {
+                    "default": "Workdays",
+                    "ja": "\u4f5c\u696d\u4e88\u5b9a\u65e5"
+                },
+                "default": "",
+                "constraints": {
+                    "required": true
+                }
+            },
+            {
+                "key": "field_target",
+                "type": "string",
+                "multi_line": true,
+                "label": {
+                    "default": "Target",
+                    "ja": "\u5bfe\u8c61"
+                },
+                "default": "",
+                "constraints": {
+                    "required": true,
+                    "length": {
+                        "max": 512,
+                        "min": 0
+                    }
+                }
+            },
+            {
+                "key": "field_workcontent",
+                "type": "string",
+                "multi_line": true,
+                "label": {
+                    "default": "Workcontent",
+                    "ja": "\u4f5c\u696d\u5185\u5bb9"
+                },
+                "default": "",
+                "constraints": {
+                    "required": true,
+                    "length": {
+                        "max": 2000,
+                        "min": 0
+                    }
+                }
+            },
+            {
+                "key": "field_acknowledgements",
+                "type": "string",
+                "multi_line": true,
+                "label": {
+                    "default": "Acknowledgment",
+                    "ja": "\u8b1d\u8f9e"
+                },
+                "default": "",
+                "constraints": {
+                    "required": true,
+                    "length": {
+                        "max": 512,
+                        "min": 0
+                    }
+                }
+            },
+            {
+                "key": "field_category",
+                "type": "string",
+                "label": {
+                    "default": "Category",
+                    "ja": "\u30ab\u30c6\u30b4\u30ea\u30fc"
+                },
+                "default": "",
+                "description": {
+                    "default": "If it does not exist, it will result in an error.",
+                    "ja": "\u5b58\u5728\u3057\u306a\u3044\u5834\u5408\u306f\u30a8\u30e9\u30fc\u306b\u306a\u308a\u307e\u3059\u3002"
+                },
+                "constraints": {
+                    "required": true
+                }
+            },
+            {
+                "key": "scope",
+                "type": "string",
+                "label": {
+                    "default": "Scope",
+                    "ja": "\u7bc4\u56f2"
+                },
+                "default": "project",
+                "constraints": {
+                    "required": true,
+                    "allowed_values": [
+                        {
+                            "value": "project",
+                            "label": {
+                                "default": "Project",
+                                "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8"
+                            }
+                        },
+                        {
+                            "value": "region",
+                            "label": {
+                                "default": "Region",
+                                "ja": "\u30ea\u30fc\u30b8\u30e7\u30f3"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "target_name",
+                "type": "string",
+                "label": {
+                    "default": "Target Name",
+                    "ja": "\u30bf\u30fc\u30b2\u30c3\u30c8\u540d"
+                },
+                "default": "",
+                "description": {
+                    "default": "Please enter the Project Name If you select the Project. Please enter the Region Name If you selected the Region.If it does not exist, it will result in an error.If you have the Info blank will be whole for the announcement registration.",
+                    "ja": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u3092\u9078\u629e\u3057\u305f\u5834\u5408\u306f\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u540d\u3092\u5165\u529b\u3057\u3066\u3044\u304f\u3060\u3055\u3044\u3002\u30ea\u30fc\u30b8\u30e7\u30f3\u3092\u9078\u629e\u3057\u305f\u5834\u5408\u306f\u30ea\u30fc\u30b8\u30e7\u30f3\u540d\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u5b58\u5728\u3057\u306a\u3044\u5834\u5408\u306f\u30a8\u30e9\u30fc\u306b\u306a\u308a\u307e\u3059\u3002\u7a7a\u767d\u3092\u8a2d\u5b9a\u3057\u305f\u5834\u5408\u306f\u5168\u4f53\u7684\u306a\u304a\u77e5\u3089\u305b\u306e\u767b\u9332\u306b\u306a\u308a\u307e\u3059\u3002"
+                }
+            },
+            {
+                "key": "field_announcementdate",
+                "type": "date",
+                "label": {
+                    "default": "Announcement Date",
+                    "ja": "\u304a\u77e5\u3089\u305b\u65e5"
+                },
+                "default": "",
+                "constraints": {
+                    "required": true
+                }
+            },
+            {
+                "key": "publish_on",
+                "type": "date",
+                "label": {
+                    "default": "Publish on",
+                    "ja": "\u516c\u958b\u958b\u59cb\u65e5"
+                },
+                "default": "",
+                "constraints": {
+                    "required": true
+                }
+            },
+            {
+                "key": "unpublish_on",
+                "type": "date",
+                "label": {
+                    "default": "Unpublish on",
+                    "ja": "\u516c\u958b\u7d42\u4e86\u65e5"
+                },
+                "default": "",
+                "constraints": {
+                    "required": true
+                }
+            },
+            {
+                "key": "message",
+                "type": "string",
+                "multi_line": true,
+                "label": {
+                    "default": "Message",
+                    "ja": "\u30e1\u30c3\u30bb\u30fc\u30b8"
+                },
+                "constraints": {
+                    "length": {
+                        "max": 512,
+                        "min": 0
+                    }
+                }
+            }
+        ],
+        "description": {
+            "default": "This screen is used to apply for registration announcement.",
+            "ja": "\u304a\u77e5\u3089\u305b\u767b\u9332\u7533\u8acb\u3092\u3059\u308b\u753b\u9762\u3067\u3059\u3002"
+        },
+        "custom": []
+    },
+    "update":{
+        "parameters": [
+            {
+                "key": "message",
+                "type": "string",
+                "multi_line": true,
+                "label": {
+                    "default": "Message",
+                    "ja": "\u30e1\u30c3\u30bb\u30fc\u30b8"
+                },
+                "constraints": {
+                    "length": {
+                        "max": 512,
+                        "min": 0
+                    }
+                }
+            }
+        ],
+        "description": {
+            "default": "This screen is used to the approval of the announcement registration application.",
+            "ja": "\u304a\u77e5\u3089\u305b\u767b\u9332\u7533\u8acb\u306e\u627f\u8a8d\u3092\u3059\u308b\u753b\u9762\u3067\u3059\u3002"
+        },
+        "custom": []
+    },
+
+    "action": {
+        "broker_class": "aflo.tickets.broker.sample_add_announcement_handler.AddAnnouncementHandler",
+        "broker": [
+            {
+                "status": "pre-approval",
+                "timing": "before",
+                "validation": "integrity_check_for_add_announcement",
+                "broker_method": ""
+            },
+            {
+                "status": "pre-approval",
+                "timing": "after",
+                "broker_method": "mail_to_service_manager"
+            },
+            {
+                "status": "canceled",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "canceled",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "rejected",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "rejected",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "final approval",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "final approval",
+                "timing": "after",
+                "broker_method": "data_registration_for_add_announcement"
+            }
+        ]
+    }
+}

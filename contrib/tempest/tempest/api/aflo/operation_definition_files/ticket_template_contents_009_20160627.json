@@ -1,0 +1,68 @@
+{
+    "ticket_template_version": "2016-06-27",
+    "action": {
+        "broker": [],
+        "broker_class": "aflo.tickets.broker.sample_broker.SampleBroker"
+    },
+    "application_kinds_name": {
+        "Default": "application_kinds_2",
+        "ja": "application_kinds_2(ja)"
+    },
+    "first_status_code": "applied",
+    "create": {
+        "parameters": [
+            {
+                "key": "num",
+                "type": "number",
+                "label": {
+                    "Default": "num",
+                    "ja": "num"},
+                "constraints": {
+                    "required": true,
+                    "range": {
+                        "max": "999",
+                        "min": "0"
+                    }
+                }
+            },
+            {
+                "key": "description",
+                "type": "string",
+                "label": {
+                    "Default": "description",
+                    "ja": "description"},
+                "constraints": {
+                    "length": {
+                        "max": "128",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "update": {
+        "parameters": [
+            {
+                "key": "message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "length": {
+                        "max": "512",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "target_id": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2"],
+    "target_key": ["num"],
+    "ticket_template_name": {
+        "Default": "flat-rate-1 *root:three",
+        "ja": "flat-rate-1(ja) *root:three"
+    },
+    "ticket_type": "New Contract",
+    "wf_pattern_code": "three_approver_009"
+}

@@ -1,0 +1,135 @@
+{
+    "ticket_template_version": "2016-06-27",
+    "ticket_template_name": {
+        "Default": "Work Request",
+        "ja": "\\u4f5c\\u696d\\u4f9d\\u983c"},
+
+    "application_kinds_name": {
+        "Default": "Request User Entry",
+        "ja": "\\u30e6\\u30fc\\u30b6\\u30fc\\u767b\\u9332\\u7533\\u8acb"},
+
+    "ticket_type": "request",
+
+    "target_id": "",
+
+    "wf_pattern_code": "request_workflow",
+
+    "create": {
+        "parameters": [
+            {
+                "key": "User Name",
+                "label": {
+                    "Default": "User Name",
+                    "ja": "\\u30e6\\u30fc\\u30b6\\u30fc\\u540d"},
+                "type": "string",
+                "constraints": {
+                    "required": true,
+                    "length": {
+                        "max": "255",
+                        "min": "1"
+                    }
+                }
+            },
+            {
+                "key": "Email",
+                "label": {
+                    "Default": "Email",
+                    "ja": "\\u30e1\\u30fc\\u30eb"},
+                "type": "email"
+            },
+            {
+                "key": "Role",
+                "label": {
+                    "Default": "Role",
+                    "ja": "\\u6a29\\u9650"},
+                "type": "string"
+            },
+            {
+                "key": "Message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "length": {
+                        "max": "512",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "update": {
+        "parameters": [
+            {
+                "key": "Message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "length": {
+                        "max": "512",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+
+    "first_status_code": "inquiring",
+
+    "action": {
+        "broker_class": "aflo.tickets.broker.common_request_handler.UserEntryRequestHandler",
+        "broker":[
+            {
+                "status": "inquiring",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "inquiring",
+                "timing": "after",
+                "validation": "",
+                "broker_method": "mail_to_support"
+            },
+            {
+                "status": "working",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "working",
+                "timing": "after",
+                "validation": "",
+                "broker_method": "mail_to_member"
+            },
+            {
+                "status": "done",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "done",
+                "timing": "after",
+                "validation": "",
+                "broker_method": "mail_to_member"
+            },
+            {
+                "status": "closed",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "closed",
+                "timing": "after",
+                "validation": "",
+                "broker_method": ""
+            }
+        ]
+    }
+}

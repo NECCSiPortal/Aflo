@@ -1,0 +1,55 @@
+{
+    "context_is_admin":  "role:admin",
+    "default": "",
+
+    "tickettemplates_index": "role:admin or role:developer",
+    "tickettemplates_show": "role:admin or role:developer",
+    "tickettemplates_create": "role:admin",
+    "tickettemplates_delete": "role:admin",
+
+    "workflowpatterns_create": "role:admin",
+    "workflowpatterns_delete": "role:admin",
+
+    "tickets_index": "role:admin or role:developer",
+    "tickets_show": "role:admin or role:developer",
+    "tickets_create": "role:admin or role:tenant_admin or role:developer or role:__member__ or role:_member_ or role:wf_apply",
+    "tickets_delete": "role:admin",
+
+    "contract_create": "role:admin",
+    "contract_delete": "role:admin",
+    "contract_update": "role:admin",
+    "contract_show": "role:admin or role:developer",
+    "contract_list": "role:admin or role:__member__",
+
+    "goods_create": "role:admin or role:developer",
+    "goods_update": "role:admin",
+    "goods_list": "role:admin or role:developer or role:__member__",
+    "goods_show": "role:admin or role:developer",
+    "goods_delete": "role:admin",
+
+    "catalog_create": "role:admin or role:developer",
+    "catalog_update": "role:admin",
+    "catalog_show": "role:admin or role:developer",
+    "catalog_index": "role:admin or role:developer or role:__member__",
+    "catalog_delete": "role:admin",
+
+    "catalog_contents_create": "role:admin or role:developer",
+    "catalog_contents_list": "role:admin or role:__member__",
+    "catalog_contents_show": "role:admin or role:developer",
+    "catalog_contents_update": "role:admin or role:developer",
+    "catalog_contents_delete": "role:admin",
+
+    "catalog_scope_create": "role:admin or role:developer",
+    "catalog_scope_index": "role:admin or role:developer or role:__member__",
+    "catalog_scope_show": "role:admin or role:developer",
+    "catalog_scope_update": "role:admin or role:developer",
+    "catalog_scope_delete": "role:admin",
+
+    "valid_catalog_list": "role:admin or role:developer or role:__member__",
+
+    "price_create": "role:admin or role:developer",
+    "price_index": "role:admin or role:developer or role:__member__",
+    "price_show": "role:admin or role:developer or role:__member__",
+    "price_update": "role:admin or role:developer",
+    "price_delete": "role:admin"
+}

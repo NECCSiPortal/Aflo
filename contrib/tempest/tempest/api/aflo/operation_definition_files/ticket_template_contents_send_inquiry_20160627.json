@@ -1,0 +1,102 @@
+{
+    "ticket_template_version": "2016-06-27",
+    "action": {
+        "broker": [
+            {
+                "broker_method": "",
+                "status": "inquiring",
+                "timing": "before",
+                "validation": "param_check"
+            },
+            {
+                "broker_method": "mail_to_support",
+                "status": "inquiring",
+                "timing": "after",
+                "validation": ""
+            },
+            {
+                "broker_method": "",
+                "status": "working",
+                "timing": "before",
+                "validation": "param_check"
+            },
+            {
+                "broker_method": "mail_to_member",
+                "status": "working",
+                "timing": "after",
+                "validation": ""
+            },
+            {
+                "broker_method": "",
+                "status": "close request",
+                "timing": "before",
+                "validation": "param_check"
+            },
+            {
+                "broker_method": "mail_to_member",
+                "status": "close request",
+                "timing": "after",
+                "validation": ""
+            },
+            {
+                "broker_method": "",
+                "status": "close",
+                "timing": "before",
+                "validation": "param_check"
+            },
+            {
+                "broker_method": "",
+                "status": "close",
+                "timing": "after",
+                "validation": ""
+            }
+        ],
+        "broker_class": "aflo.tickets.broker.common_request_handler.CommonRequestHandler"
+    },
+    "application_kinds_name": {
+        "Default": "Other Request",
+        "ja": "\u304a\u554f\u3044\u5408\u308f\u305b"
+    },
+    "first_status_code": "inquiring",
+    "create": {
+        "parameters": [
+            {
+                "key": "Message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "length": {
+                        "max": "512",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "update": {
+        "parameters": [
+            {
+                "key": "message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "length": {
+                        "max": "512",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "target_id": "",
+    "ticket_template_name": {
+        "Default": "Other Request",
+        "ja": "\u304a\u554f\u3044\u5408\u308f\u305b"
+    },
+    "ticket_type": "request",
+    "wf_pattern_code": "request_workflow_inquiry"
+}

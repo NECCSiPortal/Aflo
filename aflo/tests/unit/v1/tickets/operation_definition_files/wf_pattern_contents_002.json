@@ -1,0 +1,94 @@
+{
+    "wf_pattern_code": "Three_approver",
+    "wf_pattern_name": {"Default": "Two_approver",
+                        "ja_JP": "Two_approver_jp"},
+    "status_list": [
+        {
+            "status_code": "none",
+            "status_name": {"Default": "none",
+                            "ja_JP": "none_jp"},
+            "next_status": [
+                {
+                    "next_status_code": "applied_1st",
+                    "grant_role": "__member__"
+                }
+            ]
+        },
+        {
+            "status_code": "applied_1st",
+            "status_name": {"Default": "applied(1/2)",
+                            "ja_JP": "applied(1/2)_jp"},
+            "next_status": [
+                {
+                    "next_status_code": "applied_2nd",
+                    "grant_role": "director"
+                },
+                {
+                    "next_status_code": "denied",
+                    "grant_role": "director"
+                },
+                {
+                    "next_status_code": "withdrew",
+                    "grant_role": "__member__"
+                }
+            ]
+        },
+        {
+            "status_code": "applied_2nd",
+            "status_name": {"Default": "applied(2/2)",
+                            "ja_JP": "applied(2/2)_jp"},
+            "next_status": [
+                {
+                    "next_status_code": "approved",
+                    "grant_role": "tenant_admin"
+                },
+                {
+                    "next_status_code": "denied",
+                    "grant_role": "tenant_admin"
+                },
+                {
+                    "next_status_code": "withdrew",
+                    "grant_role": "__member__"
+                }
+            ]
+        },
+        {
+            "status_code": "approved",
+            "status_name": {"Default": "approved",
+                            "ja_JP": "approved_jp"},
+            "next_status": [{}]
+        },
+        {
+            "status_code": "denied",
+            "status_name": {"Default": "denied",
+                            "ja_JP": "denied_jp"},
+            "next_status": [
+                {
+                    "next_status_code": "applied",
+                    "grant_role": "__member__"
+                }
+            ]
+        },
+        {
+            "status_code": "withdrew",
+            "status_name": {"Default": "withdrew",
+                            "ja_JP": "withdrew_jp"},
+            "next_status": [
+                {
+                    "next_status_code": "applied",
+                    "grant_role": "__member__"
+                },
+                {
+                    "next_status_code": "deleted",
+                    "grant_role": "__member__"
+                }
+            ]
+        },
+        {
+            "status_code": "deleted",
+            "status_name": {"Default": "deleted",
+                            "ja_JP": "deleted_jp"},
+            "next_status": [{}]
+        }
+    ]
+}

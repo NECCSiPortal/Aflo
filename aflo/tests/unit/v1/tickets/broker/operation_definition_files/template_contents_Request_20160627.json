@@ -1,0 +1,108 @@
+{
+    "ticket_template_version": "2016-06-27",
+    "ticket_template_name": {
+        "Default": "Other Request",
+        "ja": "\\u304a\\u554f\\u5408\\u305b"},
+
+    "application_kinds_name": {
+        "Default": "Work Request",
+        "ja": "\\u304a\\u554f\\u5408\\u305b"},
+
+    "ticket_type": "request",
+
+    "target_id": "",
+
+    "wf_pattern_code": "request_workflow",
+
+    "create": {
+        "parameters": [
+            {
+                "key": "Message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "required": true,
+                    "length": {
+                        "max": "512",
+                        "min": "1"
+                    }
+                }
+            }
+        ]
+    },
+    "update": {
+        "parameters": [
+            {
+                "key": "Message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "length": {
+                        "max": "512",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+
+    "first_status_code": "inquiring",
+
+    "action": {
+        "broker_class": "aflo.tickets.broker.common_request_handler.CommonRequestHandler",
+        "broker":[
+            {
+                "status": "inquiring",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "inquiring",
+                "timing": "after",
+                "validation": "",
+                "broker_method": "mail_to_support"
+            },
+            {
+                "status": "working",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "working",
+                "timing": "after",
+                "validation": "",
+                "broker_method": "mail_to_member"
+            },
+            {
+                "status": "done",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "done",
+                "timing": "after",
+                "validation": "",
+                "broker_method": "mail_to_member"
+            },
+            {
+                "status": "closed",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "closed",
+                "timing": "after",
+                "validation": "",
+                "broker_method": ""
+            }
+        ]
+    }
+}

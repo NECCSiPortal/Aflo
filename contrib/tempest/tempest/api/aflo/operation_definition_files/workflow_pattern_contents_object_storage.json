@@ -1,0 +1,63 @@
+{
+    "wf_pattern_version": "2016-06-27",
+    "wf_pattern_code": "contract_workflow_object_storage",
+    "wf_pattern_name": {
+        "Default": "Contract Workflow",
+        "ja": "\u5951\u7d04\u30ef\u30fc\u30af\u30d5\u30ed\u30fc"},
+
+    "status_list": [
+        {
+            "status_code": "none",
+            "status_name": {
+                "Default": "None",
+                "ja": "\u306a\u3057"},
+            "next_status": [
+                {
+                    "next_status_code": "pre-approval",
+                    "grant_role": "T__DC1__ProjectMember"
+                }
+            ]
+        },
+        {
+            "status_code": "pre-approval",
+            "status_name": {
+                "Default": "Pre-approval",
+                "ja": "\u672a\u627f\u8a8d"},
+            "next_status": [
+                {
+                    "next_status_code": "final approval",
+                    "grant_role": "C__Global__ProjectAdmin"
+                },
+                {
+                    "next_status_code": "rejected",
+                    "grant_role": "C__Global__ProjectAdmin"
+                },
+                {
+                    "next_status_code": "canceled",
+                    "grant_role": "T__DC1__ProjectMember"
+                }
+            ]
+        },
+        {
+            "status_code": "rejected",
+            "status_name": {
+                "Default": "Rejected",
+                "ja": "\u5426\u8a8d"},
+            "next_status": [{}]
+        },
+        {
+            "status_code": "canceled",
+            "status_name": {
+                "Default": "Canceled",
+                "ja": "\u30ad\u30e3\u30f3\u30bb\u30eb"},
+            "next_status": [{}]
+        },
+        {
+            "status_code": "final approval",
+            "status_name": {
+                "Default": "Final Approval",
+                "ja": "\u6700\u7d42\u627f\u8a8d"},
+            "next_status": [{}]
+        }
+    ]
+}

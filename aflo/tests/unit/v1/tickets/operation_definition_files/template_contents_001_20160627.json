@@ -1,0 +1,174 @@
+{
+    "ticket_template_version": "2016-06-27",
+    "ticket_template_name": {
+        "Default": "CPU and Memory set L (Quota)",
+        "ja_JP": "CPU and Memory set L (Quota)_jp"
+    },
+    "ticket_type": "goods",
+    "target_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "wf_pattern_code": "Three_approver",
+    "create": {
+        "custom": [
+            {
+                "price_list": "right"
+            }
+        ],
+        "parameters": [
+            {
+                "constraints": {
+                    "range": {
+                        "max": 9999,
+                        "min": 1
+                    },
+                    "required": true
+                },
+                "default": "",
+                "key": "number_parameter",
+                "label": {
+                    "default": "Number Parameter",
+                    "ja": "Number Parameter(ja)"
+                },
+                "type": "number"
+            },
+            {
+                "constraints": {
+                    "length": {
+                        "max": 512,
+                        "min": 2
+                    }
+                },
+                "description": {
+                    "default": "Please input if there is a message.",
+                    "ja":
+                        "\u30e1\u30c3\u30bb\u30fc\u30b8\u304c\u3042\u308b\u5834\u5408\u306f\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002"
+                },
+                "key": "string_parameter",
+                "label": {
+                    "default": "String Parameter",
+                    "ja": "String Parameter(ja)"
+                },
+                "multi_line": true,
+                "type": "string"
+            },
+            {
+                "key": "hidden_parameter",
+                "label": {
+                    "default": "Hidden Parameter",
+                    "ja": "Hidden Parameter(ja)"
+                },
+                "type": "hidden"
+            },
+            {
+                "default": "",
+                "key": "date_parameter",
+                "label": {
+                    "default": "Date Parameter",
+                    "ja": "Date Parameter(ja)"
+                },
+                "type": "date"
+            },
+            {
+                "default": "",
+                "key": "email_parameter",
+                "label": {
+                    "default": "Email Parameter",
+                    "ja": "Email Parameter(ja)"
+                },
+                "type": "email"
+            },
+            {
+                "default": "",
+                "key": "boolean_parameter",
+                "label": {
+                    "default": "Boolean Parameter",
+                    "ja": "Boolean Parameter(ja)"
+                },
+                "type": "boolean"
+            },
+            {
+                "default": "",
+                "key": "select_item_parameter",
+                "label": {
+                    "default": "Select Item Parameter",
+                    "ja": "Select Item Parameter(ja)"
+                },
+                "type": "string",
+                "constraints": {
+                    "allowed_values": [
+                        {
+                            "value": "0",
+                            "label": {
+                                "default": "Select Item A",
+                                "ja": "Select Item A(ja)"
+                            }
+                        },
+                        {
+                            "value": "1",
+                            "label": {
+                                "default": "Select Item B",
+                                "ja": "Select Item B(ja)"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "default": "",
+                "key": "regular_expression_parameter",
+                "label": {
+                    "default": "Regular Expression Parameter",
+                    "ja": "Regular Expression Parameter(ja)"
+                },
+                "type": "string",
+                "constraints": {
+                    "allowed_pattern": "\\d{2}-[a-z]{5}"
+                }
+            }
+        ]
+    },
+    "update": {
+        "parameters": [
+            {
+                "key": "Message",
+                "type": "string",
+                "label": {
+                    "Default": "Message",
+                    "ja": "\\u30e1\\u30c3\\u30bb\\u30fc\\u30b8"},
+                "constraints": {
+                    "length": {
+                        "max": "512",
+                        "min": "0"
+                    }
+                }
+            }
+        ]
+    },
+    "action": {
+        "broker_class":
+        "aflo.tests.unit.v1.tickets.broker_stubs.fake_broker.FakeBroker",
+        "broker": [
+            {
+                "status": "applied_1st",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": "before_action"
+            },
+            {
+                "status": "applied_1st",
+                "timing": "after",
+                "broker_method": "after_action"
+            },
+            {
+                "status": "applied_2nd",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": "before_action"
+            },
+            {
+                "status": "applied_2nd",
+                "timing": "after",
+                "broker_method": "after_action"
+            }
+        ]
+    }
+}

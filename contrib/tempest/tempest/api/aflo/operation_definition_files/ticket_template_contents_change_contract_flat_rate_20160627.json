@@ -1,0 +1,174 @@
+{
+    "ticket_template_version": "2016-06-27",
+    "ticket_template_name": {
+        "Default": "change-flat-rate",
+        "ja": "\u5951\u7d04\u5909\u66f4(\u5f93\u91cf\u2192Quota)"},
+
+    "application_kinds_name": {
+        "Default": "VCPU 10, RAM 20GB, Volume Storage 50GB",
+        "ja": "VCPU 10, RAM 20GB, \u30dc\u30ea\u30e5\u30fc\u30e0\u30b9\u30c8\u30ec\u30fc\u30b8 50GB"},
+
+    "ticket_type": "New Contract",
+
+    "wf_pattern_code": "change_contract_workflow",
+    "first_status_code": "pre-approval",
+
+    "cancelling_template": {
+        "id": "11"},
+    "change_template": {
+        "id": "11"},
+
+    "target_id": ["catalog0-1111-2222-3333-000000000005", "catalog0-1111-2222-3333-000000000002", "catalog0-1111-2222-3333-000000000001"],
+    "target_key": ["vcpu", "ram", "volume_storage"],
+
+    "price_notice": ["*Monthly fee", "*Tax excluded"],
+
+    "create":{
+        "parameters": [
+            {
+                "key": "vcpu",
+                "type": "number",
+                "label": {
+                    "default": "VCPU x 10 CORE(S) Number",
+                    "ja": "VCPU x 10 CORE(S) \u5951\u7d04\u6570"
+                },
+                "default": "",
+                "constraints": {
+                    "required": true,
+                    "range": {
+                        "max": 9999,
+                        "min": 0
+                    }
+                }
+            },
+            {
+                "key": "ram",
+                "type": "number",
+                "label": {
+                    "default": "RAM 20 GB Number",
+                    "ja": "RAM 20 GB \u5951\u7d04\u6570"
+                },
+                "default": "",
+                "constraints": {
+                    "required": true,
+                    "range": {
+                        "max": 9999,
+                        "min": 0
+                    }
+                }
+            },
+            {
+                "key": "volume_storage",
+                "type": "number",
+                "label": {
+                    "default": "Volume 50 GB Number",
+                    "ja": "\u30dc\u30ea\u30e5\u30fc\u30e0\u30b9\u30c8\u30ec\u30fc\u30b8 50 GB \u5951\u7d04\u6570"
+                },
+                "default": "",
+                "constraints": {
+                    "required": true,
+                    "range": {
+                        "max": 9999,
+                        "min": 0
+                    }
+                }
+            },
+            {
+                "key": "message",
+                "type": "string",
+                "multi_line": true,
+                "label": {
+                    "default": "Message",
+                    "ja": "\u30e1\u30c3\u30bb\u30fc\u30b8"
+                },
+                "description": {
+                    "default": "Please input if there is a message.",
+                    "ja": "\u30e1\u30c3\u30bb\u30fc\u30b8\u304c\u3042\u308b\u5834\u5408\u306f\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002"
+                },
+                "constraints": {
+                    "length": {
+                        "max": 512,
+                        "min": 0
+                    }
+                }
+            }
+        ],
+        "description": {
+            "default": "This screen is used to apply for a contract change from Pay-for-use to Flat-rate.",
+            "ja": "\u5f93\u91cf\u8ab2\u91d1\u304b\u3089Quota\u8cfc\u5165\u3078\u306e\u5951\u7d04\u5909\u66f4\u3092\u7533\u8acb\u3059\u308b\u753b\u9762\u3067\u3059\u3002"
+        },
+        "custom": [
+            {"price_list": "right"}
+        ]
+    },
+    "update":{
+        "parameters": [
+            {
+                "key": "message",
+                "type": "string",
+                "multi_line": true,
+                "label": {
+                    "default": "Message",
+                    "ja": "\u30e1\u30c3\u30bb\u30fc\u30b8"
+                }
+            }
+        ],
+        "description": {
+            "default": "This screen is used to approve the contract changes from Pay-for-use to Flat-rate.",
+            "ja": "\u5f93\u91cf\u8ab2\u91d1\u304b\u3089Quota\u8cfc\u5165\u3078\u306e\u5951\u7d04\u5909\u66f4\u3092\u627f\u8a8d\u3059\u308b\u753b\u9762\u3067\u3059\u3002"
+        },
+        "custom": [
+            {"price_list": "right"}
+        ]
+    },
+
+    "action": {
+        "broker_class": "aflo.tickets.broker.sample_change_contract.ChangeToFlatRateContractHandler",
+        "broker": [
+            {
+                "status": "pre-approval",
+                "timing": "before",
+                "validation": "integrity_check_for_contract_approval",
+                "broker_method": ""
+            },
+            {
+                "status": "pre-approval",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "canceled",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "canceled",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "rejected",
+                "timing": "before",
+                "validation": "param_check",
+                "broker_method": ""
+            },
+            {
+                "status": "rejected",
+                "timing": "after",
+                "broker_method": ""
+            },
+            {
+                "status": "final approval",
+                "timing": "before",
+                "validation": "integrity_check_for_contract_approval",
+                "broker_method": ""
+            },
+            {
+                "status": "final approval",
+                "timing": "after",
+                "broker_method": "contract_data_registration"
+            }
+        ]
+    }
+}

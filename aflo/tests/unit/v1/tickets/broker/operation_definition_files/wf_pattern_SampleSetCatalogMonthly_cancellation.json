@@ -1,0 +1,78 @@
+{
+    "wf_pattern_code": "contract_workflow",
+    "wf_pattern_name": {
+        "Default": "Contract Workflow",
+        "ja": "\\u5951\\u7d04\\u30ef\\u30fc\\u30af\\u30d5\\u30ed\\u30fc"},
+
+    "status_list": [
+        {
+            "status_code": "none",
+            "status_name": {
+                "Default": "None",
+                "ja": "\\u306a\\u3057"},
+            "next_status": [
+                {
+                    "next_status_code": "awaiting approval",
+                    "grant_role": "wf_apply"
+                }
+            ]
+        },
+        {
+            "status_code": "awaiting approval",
+            "status_name": {
+                "Default": "Awaiting Approval",
+                "ja": "\\u7533\\u8acb\\u4e2d"},
+            "next_status": [
+                {
+                    "next_status_code": "check",
+                    "grant_role": "wf_check"
+                },
+                {
+                    "next_status_code": "reject",
+                    "grant_role": "wf_check"
+                },
+                {
+                    "next_status_code": "withdrawn",
+                    "grant_role": "wf_apply"
+                }
+            ]
+        },
+        {
+            "status_code": "check",
+            "status_name": {
+                "Default": "Check",
+                "ja": "\\u67fb\\u95b2"},
+            "next_status": [
+                {
+                    "next_status_code": "reject",
+                    "grant_role": "wf_approval"
+                },
+                {
+                    "next_status_code": "approval",
+                    "grant_role": "wf_approval"
+                }
+            ]
+        },
+        {
+            "status_code": "reject",
+            "status_name": {
+                "Default": "Reject",
+                "ja": "\\u5426\\u8a8d"},
+            "next_status": [{}]
+        },
+        {
+            "status_code": "withdrawn",
+            "status_name": {
+                "Default": "Withdrawn",
+                "ja": "\\u53d6\\u308a\\u4e0b\\u3052"},
+            "next_status": [{}]
+        },
+        {
+            "status_code": "approval",
+            "status_name": {
+                "Default": "Approval",
+                "ja": "\\u627f\\u8a8d"},
+            "next_status": [{}]
+        }
+    ]
+}
